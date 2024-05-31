@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f2f2;
+}
+
+nav {
+    background-color: rgb(182, 179, 179);
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    border:2px solid black
+}
+
+.btn1 {
+    border: 1.5px solid black;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 3px;
+    background-color: rgb(194, 186, 186);
+    font-weight: 550;
+
+}
+    </style>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <nav>
+        <a href="/" aria-current="page" class="btn1">Home</a>
+        <a target="_blank" href="#" class="btn1">Youtube Channel</a>
+    </nav> 
+   <i><h1>Start should change the background color and text color every second</h1></i>
+   <button id="start"  class="btn1">Start</button>
+   <button id="stop" class="btn1">Stop</button>
+</body>
+
+<script>
+   const randomColor = function() {
+    const hex = "0123456789ABCDEF"
+    let color = "#"
+
+    for(let i = 0 ; i < 6 ; i++)
+    {
+        color += hex[Math.floor(Math.random() * 16)]
+    }
+    return color
+   }
+
+let stop
+ const starting = function () {
+    const start =  function() {
+    document.body.style.backgroundColor = randomColor()
+    document.body.style.color = randomColor()
+  } 
+ 
+  if(!stop){
+    stop = setInterval(start,1000)
+  }
+   
+ }
+
+ const stoping = function () {
+    clearInterval(stop)
+    stop = null;
+ }
+
+ document.querySelector("#start").addEventListener("click" , starting)
+ document.querySelector("#stop").addEventListener("click" , stoping)
+
+9528641782
+
+
+</script>
+</html>
